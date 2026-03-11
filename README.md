@@ -1,5 +1,5 @@
 veera venkata Ganesh Nurukurthi (G01448473)
-# Model Builder - CS 663 Project 1
+# Model Builder 
 ## Files
 - main.cpp: The entry point of the application that sets up the GUI and handles rendering.
 - tgaClass.cpp: Contains methods for loading and processing .tga images.
@@ -31,4 +31,5 @@ If you haven't installed Homebrew:
 
 # Usage
 - Loading Images: The tgaClass file allows you to load .tga images, which can be used in the OpenGL rendering pipeline.
+
 - Rendering: The main application is responsible for rendering the 3D model or other graphical elements using OpenGL.
