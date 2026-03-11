@@ -1,4 +1,4 @@
-veera venkata Ganesh Nurukurthi (G01448473)
+
 # Model Builder 
 ## Files
 - main.cpp: The entry point of the application that sets up the GUI and handles rendering.
@@ -33,3 +33,4 @@ If you haven't installed Homebrew:
 - Loading Images: The tgaClass file allows you to load .tga images, which can be used in the OpenGL rendering pipeline.
 
 - Rendering: The main application is responsible for rendering the 3D model or other graphical elements using OpenGL.
+
