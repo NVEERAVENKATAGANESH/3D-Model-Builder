@@ -1,6 +1,4 @@
-//implementation of tgaClass
-//Note : the C file and memory operations are very efficient and so were
-//not translated to C++ operations
+
 #include "tgaClass.h"
 
 using namespace std;
@@ -109,11 +107,11 @@ int TGA :: readTGA (char *name)
 	if (!(fname = fopen (name, "r+bt")))
 		return TGA_FILE_NOT_FOUND;
 
-	fread (&type, sizeof (char), 3, fname); // read in colormap info and image type, byte 0 ignored
-	fseek (fname, 12, SEEK_SET);			// seek past the header and useless info
+	fread (&type, sizeof (char), 3, fname); 
+	fseek (fname, 12, SEEK_SET);			
 	fread (&info, sizeof (char), 6, fname);
 
-	// make sure that the colormap is 0 and type is 2, unmapped RGB
+	
 	if (type[1] != 0 || type[2] != 2)
 		return TGA_BAD_IMAGE_TYPE;
 

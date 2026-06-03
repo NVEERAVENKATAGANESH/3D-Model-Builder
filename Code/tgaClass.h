@@ -1,7 +1,4 @@
-//class to load a TGA image file 
-//based on Nate Millers tutorial - but cleaned up
-//still has a decidedly C flavor
-//D. Byrnes , 5/6/02
+
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -10,9 +7,7 @@
 #ifndef TGA_H
 #define TGA_H
 
-// Error Codes should be visible to all files
 
-// file was not found
 const int TGA_FILE_NOT_FOUND = 13;
 // color mapped image or image is not RGB uncompressed
 const int TGA_BAD_IMAGE_TYPE = 14;

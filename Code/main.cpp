@@ -1,36 +1,4 @@
-// Avery Rapson and Jacob London
-// October 26, 2015
 
-
-/* ------------- */
-/*   Project 2   */
-/* ------------- */
-
-
-/*
- Objective of Program:
- + In OpenGl, create an animated 3D hierarchical object.You must restrict the transformations applied to the object so that its behavior is a reasonable facsimile of its real world behavior; i.e. real elbows can't rotate 360 degrees.
- + Smooth, filled and colored 3D polygons must be used.
- + The figure must contain at least eight separate objects. These eight objects must define at least 4 parent/child relationships
- + A least one positional light must be used (diffuse or ambient).
- + You must define several new GLUT callback functions : GlutIdleFunction, GlutVisibilityFunction. The idle function defines the sequence of animations that the object goes through. The visibilty function defines when the object is visible.
- + You must add a menu to the Glut window environment for your application. Minimally the menu will allow the user to stop/start the animation and quit the application. You must write a function to handle menu selections.
- 
- Controls:
- 
- + To quit the program: Hit q or "esc"
- + To open screen menu: Right click
- + Screen menu options are as follows:
- + Start - starts animation
- + Stop - stops animation
- + Zoomin - zooms in on the robot
- + Zoomout - zooms out on the robot
- + Speedup - speeds up the animation
- + Slowdown - slows down the animation
- + Reset - resets the animation and zoom to original settings
- + Quit - quits the program
- 
- */
 
 
 #include <math.h>
@@ -88,30 +56,20 @@ float multValue = 1.8, timesValue = 1.48, eyeValue = 1, boostValue = 1, earSpeed
 
 GLboolean moving = false;
 
-/*
- * Function used to register mouse motion.
- * Pre: correct capture and initialization of variables from mouse();
- * Post: glutPostRedisplay() is called and mouse input is shown on monitor.
- */
+
 void motion(int x, int y);
 
-/*
- * Function used to capture mouse input
- * Pre: user uses mouse, callback registered in main.
- * Post: mouse angle variables are intialized for motion().
- */
+
 void mouse(int button, int state, int x, int y);
 
-static GLfloat lAngle = 0.0, rAngle = 0.0;   /* in degrees */ //Angle variables for mouse input.
-static GLfloat lAngle2 = 0.0, rAngle2 = 0.0;   /* in degrees */ //Angle variables for mouse input.
-static int lMoving = 0, rMoving = 0,lStartx, lStarty, rStartx, rStarty; //Additional variables for mouse input.
-
-
+static GLfloat lAngle = 0.0, rAngle = 0.0;   
+static GLfloat lAngle2 = 0.0, rAngle2 = 0.0;   
+static int lMoving = 0, rMoving = 0,lStartx, lStarty, rStartx, rStarty; 
 //set up material colors
 
-GLfloat field_diffuse[4] = { 0.5, 1.0, 0.6, 1.0}; //slightly green running surface
+GLfloat field_diffuse[4] = { 0.5, 1.0, 0.6, 1.0}; 
 
-GLfloat trunk_diffuse[4] = { 0.5, 0.7, 1.0, 1.0}; //a blue jersey
+GLfloat trunk_diffuse[4] = { 0.5, 0.7, 1.0, 1.0}; 
 
 GLfloat body_diffuse[4] = {0.98, 0.7,0.8, 1.0}; //pink skin tones
 
@@ -128,11 +86,7 @@ GLfloat robot_shoes[4] = {.1, .1  , .9, 0}; //robot shoes blue color
 
 GLUquadric * cyl; //Cylinder object
 
-/*
- * Init Function
- * Pre: Called from main.
- * Post: Window coordinates are set, background color set to blue, lighting initialized, depth_test enabled.
- */
+
 void myInit(){
     
     glClearColor(.3, .5, .1, 0 );
@@ -160,11 +114,7 @@ void myInit(){
 
 
 
-/*
- * Method called to write text to screen.
- * Pre: RGB color specifiers, (x,y) location of starting point, string to be displayed.
- * Post: Text is displayed to screen with proper color in proper location
- */
+
 void write(int R, int G, int B, int rX, int rY, std::string str){
     glColor3ub(R, G, B);
     glRasterPos2d(rX, rY);
@@ -198,11 +148,7 @@ void processNormalKeys(unsigned char key, int x, int y)
 }
 
 
-/*
- * Function used to capture mouse input
- * Pre: user uses mouse, callback registered in main.
- * Post: mouse angle variables are intialized for motion().
- */
+
 void mouse(int button, int state, int x, int y) {
     /* Move the scene with the left mouse button. */
     if (button == GLUT_LEFT_BUTTON) {
@@ -219,11 +165,7 @@ void mouse(int button, int state, int x, int y) {
 }
 
 
-/*
- * Function used to register mouse motion.
- * Pre: correct capture and initialization of variables from mouse();
- * Post: glutPostRedisplay() is called and mouse input is shown on monitor.
- */
+
 void motion(int x, int y)
 {
     if (lMoving) {
@@ -293,10 +235,7 @@ void display(void){
     glutSwapBuffers();
 }
 
-/*
- * Function used to draw the body of the robot
- * Pre: Initialize globals
- * Post: Body is drawn */
+
 
 void robot_body(){
     glPushMatrix();
@@ -497,10 +436,7 @@ void robot_body(){
 }
 
 
-/*
- * Function used to draw the arms of the robot
- * Pre: Initialize globals
- * Post: Arms are drawn */
+
 void robot_arms(){
     
     /*Left H*/
@@ -904,10 +840,7 @@ void Animate(void) {
     glutPostRedisplay();
 }
 
-/*
- * Function to create pop up menu on right click of mouse
- * Pre: Initialize globals, callback registered in main, corresponding logic in draw functions
- * Post: Menu is ready for use*/
+
 void menuSelect(int value) {
     
     switch (value) {
